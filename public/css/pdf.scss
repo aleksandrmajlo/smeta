@@ -1,0 +1,203 @@
+#ResultConteer {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 18px;
+
+    h2 {
+        padding-left: 5px;
+        font-size: 22px;
+        color: #2C3440;
+    }
+    .h4 {
+        font-weight: 400;
+        font-size: 20px;
+        font-style: normal;
+        color: #2C3440;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    .tr_h1 {
+        h1 {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 26px;
+            line-height: 100%;
+            color: #35455C;
+            text-align: center;
+            width: 100%;
+            white-space: nowrap;
+        }
+    }
+
+    .tr_date {
+        text-align: right;
+        //width: ;
+    }
+
+    .logoBlock {
+        width: 15%;
+        padding-right: 10px;
+        text-align: left;
+
+        img {
+            display: inline-block;
+        }
+
+        img.twoLogoImg {
+            margin-top: 10px;
+        }
+    }
+
+    table {
+        width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    table.uslCont {
+        td.tdUslContent {
+            width: 70%;
+
+            .resItemWrap {
+                padding: 5px;
+
+                .text {
+                    float: left;
+                    .title{
+                        font-weight: 400;
+                        font-size: 18px;
+                        font-style: normal;
+                        color: #2C3440;
+                        margin-bottom: 5px;
+                        margin-top: 5px;
+                    }
+                    .text_bottom {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 12px;
+                        color: #2C3440;
+                        opacity: 0.5;
+                    }
+                }
+
+                .num {
+                    float: right;
+                    text-align: right;
+                    span {
+                        display: block;
+                    }
+                    .price {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 18px;
+                        text-align: right;
+                        color: #2C3440;
+                    }
+                    .kol {
+                        font-style: normal;
+                        font-weight: 300;
+                        font-size: 12px;
+                        color: #2C3440;
+                        opacity: 0.5;
+                    }
+                }
+            }
+
+            .withColor {
+                background: #F0F0F0;
+            }
+        }
+        td.tdUslImg{
+            .resultImageBlock {
+                padding: 20px;
+            }
+        }
+    }
+
+
+    .Price_Srok_Title{
+        background: #FFC23C;
+        width: 228px;
+        height: 39px;
+
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 130%;
+        color: #000000;
+    }
+
+    .Price_Srok_Table_Wrap{
+        background: #D9D9D9;
+        //height: 100%;
+        width:100%;
+        table.Price_Srok_Table{
+            background: #D9D9D9;
+             tr{
+                 background: #D9D9D9;
+                 td{
+                     background: #D9D9D9;
+                     text-align: left;
+                     width: 15%;
+                     span{
+                         display:block;
+                     }
+                     .item{
+                         font-style: normal;
+                         font-weight: 400;
+                         font-size: 12px;
+                         color: rgba(44, 52, 64, 0.7);
+                     }
+                     .value{
+                         font-style: normal;
+                         font-weight: 700;
+                         font-size: 16px;
+                         color: #2C3440;
+                     }
+                 }
+                 td.itog{
+                     width: 12%;
+                 }
+             }
+        }
+    }
+
+    table.about{
+        tr{
+            td{
+                vertical-align: top;
+                width: 25%;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                color: #2C3440;
+            }
+        }
+    }
+
+    table.contact{
+        tr{
+            td{
+
+            }
+            td.social{
+
+            }
+        }
+    }
+
+
+
+    .clearfix {
+        overflow: auto;
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+}
