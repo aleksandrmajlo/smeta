@@ -28,13 +28,19 @@
             width: 100%;
             white-space: nowrap;
         }
+        .subtitle{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            color: #35455C;
+            opacity: 0.5;
+            text-align: center;
+        }
     }
 
     .tr_date {
         text-align: right;
-        //width: ;
     }
-
     .logoBlock {
         width: 15%;
         padding-right: 10px;
@@ -59,61 +65,64 @@
     }
 
     table.uslCont {
-        td.tdUslContent {
-            width: 70%;
+        tr{
+            vertical-align: top;
+            td.tdUslContent {
+                width: 70%;
 
-            .resItemWrap {
-                padding: 5px;
+                .resItemWrap {
+                    padding: 5px;
 
-                .text {
-                    float: left;
-                    .title{
-                        font-weight: 400;
-                        font-size: 18px;
-                        font-style: normal;
-                        color: #2C3440;
-                        margin-bottom: 5px;
-                        margin-top: 5px;
+                    .text {
+                        float: left;
+                        .title{
+                            font-weight: 400;
+                            font-size: 18px;
+                            font-style: normal;
+                            color: #2C3440;
+                            margin-bottom: 5px;
+                            margin-top: 5px;
+                        }
+                        .text_bottom {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 12px;
+                            color: #2C3440;
+                            opacity: 0.5;
+                        }
                     }
-                    .text_bottom {
-                        font-style: normal;
-                        font-weight: 400;
-                        font-size: 12px;
-                        color: #2C3440;
-                        opacity: 0.5;
-                    }
-                }
 
-                .num {
-                    float: right;
-                    text-align: right;
-                    span {
-                        display: block;
-                    }
-                    .price {
-                        font-style: normal;
-                        font-weight: 400;
-                        font-size: 18px;
+                    .num {
+                        float: right;
                         text-align: right;
-                        color: #2C3440;
-                    }
-                    .kol {
-                        font-style: normal;
-                        font-weight: 300;
-                        font-size: 12px;
-                        color: #2C3440;
-                        opacity: 0.5;
+                        span {
+                            display: block;
+                        }
+                        .price {
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 18px;
+                            text-align: right;
+                            color: #2C3440;
+                        }
+                        .kol {
+                            font-style: normal;
+                            font-weight: 300;
+                            font-size: 12px;
+                            color: #2C3440;
+                            opacity: 0.5;
+                        }
                     }
                 }
-            }
 
-            .withColor {
-                background: #F0F0F0;
+                .withColor {
+                    background: #F0F0F0;
+                }
             }
-        }
-        td.tdUslImg{
-            .resultImageBlock {
-                padding: 20px;
+            td.tdUslImg{
+                .resultImageBlock {
+                    padding: 20px;
+                }
             }
         }
     }

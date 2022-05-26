@@ -24,6 +24,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
         \App\Models\Montach::class => 'App\Http\Sections\Montaches',
         \App\Models\Dopmaterial::class => 'App\Http\Sections\Dopmaterials',
         \App\Models\Photo::class => 'App\Http\Sections\Photos',
+        \App\Models\Requisite::class => 'App\Http\Sections\Requisites',
     ];
 
     /**

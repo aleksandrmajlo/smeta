@@ -22,6 +22,13 @@
     text-align: center;
     width: 100%;
     white-space: nowrap; }
+  #ResultConteer .tr_h1 .subtitle {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #35455C;
+    opacity: 0.5;
+    text-align: center; }
   #ResultConteer .tr_date {
     text-align: right; }
   #ResultConteer .logoBlock {
@@ -37,46 +44,48 @@
   #ResultConteer img {
     max-width: 100%;
     height: auto; }
-  #ResultConteer table.uslCont td.tdUslContent {
-    width: 70%; }
-    #ResultConteer table.uslCont td.tdUslContent .resItemWrap {
-      padding: 5px; }
-      #ResultConteer table.uslCont td.tdUslContent .resItemWrap .text {
-        float: left; }
-        #ResultConteer table.uslCont td.tdUslContent .resItemWrap .text .title {
-          font-weight: 400;
-          font-size: 18px;
-          font-style: normal;
-          color: #2C3440;
-          margin-bottom: 5px;
-          margin-top: 5px; }
-        #ResultConteer table.uslCont td.tdUslContent .resItemWrap .text .text_bottom {
-          font-style: normal;
-          font-weight: 400;
-          font-size: 12px;
-          color: #2C3440;
-          opacity: 0.5; }
-      #ResultConteer table.uslCont td.tdUslContent .resItemWrap .num {
-        float: right;
-        text-align: right; }
-        #ResultConteer table.uslCont td.tdUslContent .resItemWrap .num span {
-          display: block; }
-        #ResultConteer table.uslCont td.tdUslContent .resItemWrap .num .price {
-          font-style: normal;
-          font-weight: 400;
-          font-size: 18px;
-          text-align: right;
-          color: #2C3440; }
-        #ResultConteer table.uslCont td.tdUslContent .resItemWrap .num .kol {
-          font-style: normal;
-          font-weight: 300;
-          font-size: 12px;
-          color: #2C3440;
-          opacity: 0.5; }
-    #ResultConteer table.uslCont td.tdUslContent .withColor {
-      background: #F0F0F0; }
-  #ResultConteer table.uslCont td.tdUslImg .resultImageBlock {
-    padding: 20px; }
+  #ResultConteer table.uslCont tr {
+    vertical-align: top; }
+    #ResultConteer table.uslCont tr td.tdUslContent {
+      width: 70%; }
+      #ResultConteer table.uslCont tr td.tdUslContent .resItemWrap {
+        padding: 5px; }
+        #ResultConteer table.uslCont tr td.tdUslContent .resItemWrap .text {
+          float: left; }
+          #ResultConteer table.uslCont tr td.tdUslContent .resItemWrap .text .title {
+            font-weight: 400;
+            font-size: 18px;
+            font-style: normal;
+            color: #2C3440;
+            margin-bottom: 5px;
+            margin-top: 5px; }
+          #ResultConteer table.uslCont tr td.tdUslContent .resItemWrap .text .text_bottom {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            color: #2C3440;
+            opacity: 0.5; }
+        #ResultConteer table.uslCont tr td.tdUslContent .resItemWrap .num {
+          float: right;
+          text-align: right; }
+          #ResultConteer table.uslCont tr td.tdUslContent .resItemWrap .num span {
+            display: block; }
+          #ResultConteer table.uslCont tr td.tdUslContent .resItemWrap .num .price {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            text-align: right;
+            color: #2C3440; }
+          #ResultConteer table.uslCont tr td.tdUslContent .resItemWrap .num .kol {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            color: #2C3440;
+            opacity: 0.5; }
+      #ResultConteer table.uslCont tr td.tdUslContent .withColor {
+        background: #F0F0F0; }
+    #ResultConteer table.uslCont tr td.tdUslImg .resultImageBlock {
+      padding: 20px; }
   #ResultConteer .Price_Srok_Title {
     background: #FFC23C;
     width: 228px;

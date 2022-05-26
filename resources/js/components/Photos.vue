@@ -21,15 +21,18 @@
                 </label>
             </div>
         </div>
-        <div v-if="photo_type=='default'" class="mb-2 mt-4" v-for="image in photos">
-            <img :src="image" class="img-thumbnail">
+        <div v-show="photo_type=='default'" class="mb-2 mt-4" >
+            <template v-for="image in photos">
+                <img :src="image" class="img-thumbnail">
+            </template>
         </div>
-        <div v-else class="mt-4">
+        <div  v-show="photo_type=='my'" class="mt-4">
             <div class="form-group">
-                <label for="exampleFormControlFile1">Фото</label>
+                <label for="img">Фото</label>
                 <input type="file"
-                       accept="image/png, image/jpeg"
-                       name="file" class="form-control-file" id="exampleFormControlFile1">
+                       id="img"
+                       name="file" class="form-control-file" >
+                <img :src="base" class="img-thumbnail mt-2">
             </div>
         </div>
     </div>
@@ -38,22 +41,20 @@
 <script>
     import Loading from "vue-loading-overlay";
     import "vue-loading-overlay/dist/vue-loading.css";
-
+    import {eventBus} from "../app";
     export default {
         name: "Photos",
         data() {
             return {
                 photo_type:'default',
                 photos: [],
+                base:'',
                 isLoading: true,
                 fullPage: false,
             }
         },
         components: {
             Loading,
-        },
-        created() {
-
         },
         mounted() {
             let self = this;
@@ -64,6 +65,15 @@
                 self.getPhotos()
             });
             self.getPhotos();
+
+            const fileInput  = document.getElementById('img');
+            fileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                self.base = URL.createObjectURL(file);
+                eventBus.$emit("changePhotos",{
+                    base:self.base,
+                });
+            });
         },
         methods: {
             getPhotos() {
@@ -75,8 +85,11 @@
                     }
                 )
                     .then(res => {
-                        console.log(res.data)
                         this.photos = res.data;
+                        eventBus.$emit("changePhotos",{
+                            photos:this.photos,
+                            base:false,
+                        });
                     })
                     .catch(err => {
                         console.error(err);
@@ -84,6 +97,21 @@
                     this.isLoading = false;
                 })
             }
+        },
+        watch: {
+            photo_type: function (val) {
+                if(val=='default'){
+                    eventBus.$emit("changePhotos",{
+                        photos:this.photos,
+                        base:false,
+                    });
+                }else{
+                    eventBus.$emit("changePhotos",{
+                        base:this.base,
+                    });
+                }
+            },
+
         }
     }
 </script>

@@ -3,9 +3,4 @@
         <result></result>
     </div>
 </div>
-<script>
-    import Result from "../js/components/Result";
-    export default {
-        components: {Result}
-    }
-</script>
+

@@ -10,23 +10,23 @@
 
                     <div class="mb-3">
                         <label class="form-label">Длина(м)</label>
-                        <input type="number" class="form-control" step=".1"  name="length" required>
+                        <input type="number" class="form-control" step=".1" id="length" name="length" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Ширина(м)</label>
-                        <input type="number" class="form-control" step=".1" name="width" required>
+                        <input type="number" class="form-control" step=".1" id="width" name="width" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Высота(м)</label>
-                        <input type="number" class="form-control" step=".1"  name="heigth" required>
+                        <input type="number" class="form-control" step=".1" id="heigth"  name="heigth" required>
                     </div>
 
                     <hr class="mb-4"/>
                     <h4>Столбы</h4>
-                    <div class="">
-                        <select class="form-control" name="tube_1" required>
+                    <div>
+                        <select class="form-control" name="tube_1" id="tube_1" required>
                             @foreach($tube1 as $tube)
                                 <option value="{{$tube->id}}">{{$tube->title}}</option>
                             @endforeach
@@ -62,7 +62,7 @@
                     <hr class="mb-4"/>
                     <h4>Обрешетка</h4>
                     <div class="">
-                        <select class="form-control" name="obreshetka" required>
+                        <select class="form-control" name="obreshetka" id="obreshetka" required>
                             @foreach($obreshetka as $tube)
                                 <option value="{{$tube->id}}">{{$tube->title}}</option>
                             @endforeach
@@ -88,20 +88,20 @@
 
                     <hr class="mb-4"/>
                     <h4>Краска</h4>
-                    <div class="">
-                        <select class="form-control" name="paints" required>
+                    <div >
+                        <select class="form-control" name="paints" id="paints" required>
                             @foreach($paints as $tube)
                                 <option value="{{$tube->id}}">{{$tube->title}}</option>
                             @endforeach
                         </select>
                         <label class="form-label mt-2">Кол-во краски(шт.)</label>
-                        <input class="form-control"  type="number" max="7" min="1" required name="count_paints">
+                        <input class="form-control"  type="number" max="7" min="1" required id="count_paints" value="1" name="count_paints">
                     </div>
 
                     <hr class="mb-4"/>
                     <h4>Тип монтажа</h4>
-                    <div class="">
-                        <select class="form-control" name="montach" required>
+                    <div >
+                        <select class="form-control" name="montach" id="montachs" required>
                             @foreach($montach as $tube)
                                 <option value="{{$tube->id}}">{{$tube->title}}</option>
                             @endforeach
@@ -115,7 +115,8 @@
                         <div class="d-flex align-items-center">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input dopmaterial_check" type="checkbox"
-                                       name="dopmaterial[]" value="{{$formroof->id}}" id="dopmaterial_{{$loop->index}}">
+                                       name="dopmaterials[]" value="{{$formroof->id}}"
+                                       id="dopmaterial_{{$loop->index}}">
                                 <label class="form-check-label" for="dopmaterial_{{$loop->index}}">
                                     {{$formroof->title}}
                                 </label>
@@ -124,7 +125,10 @@
                                 <label class="form-label">Количество в {{$formroof->price_type}}</label>
                                 <input class="form-control dopmaterial_input "
                                        id="dopmaterial_input_{{$loop->index}}"
-                                       min="0" type="number"  placeholder="{{$formroof->price_type}} " name="dop_count_{{$formroof->id}}">
+                                       min="0"
+                                       type="number"
+                                       placeholder="{{$formroof->price_type}} "
+                                       name="dop_count_{{$formroof->id}}">
                             </div>
                         </div>
                     @endforeach
@@ -155,32 +159,9 @@
                 <photos></photos>
             </div>
         </div>
-
-        @include('result')
+        <hr class="mb-4"/>
+{{--        @include('result')--}}
 
     </div>
 @endsection
-<script>
-    import Trus from "../js/components/Trus";
-    export default {
-        components: {Trus}
-    }
-</script>
-<script>
-    import Roof from "../js/components/Roof";
-    export default {
-        components: {Roof}
-    }
-</script>
-<script>
-    import Photos from "../js/components/Photos";
-    export default {
-        components: {Photos}
-    }
-</script>
-<script>
-    import RigelType from "../js/components/RigelType";
-    export default {
-        components: {RigelType}
-    }
-</script>
+

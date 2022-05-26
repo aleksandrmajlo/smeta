@@ -65,7 +65,7 @@ class Dopmaterials extends Section implements Initializable
             })->setOrderable(function ($query, $direction) {
                 $query->orderBy('created_at', $direction);
             })->setHtmlAttribute('class', 'text-center'),
-            AdminColumnEditable::text('price')->setLabel('Цена')->setHtmlAttribute('class', 'table-primary table-hover th-center'),
+            AdminColumnEditable::text('price')->setLabel('Цена')->setHtmlAttribute('class', 'text-center'),
             AdminColumn::text('price_type','Тип Цена')->setHtmlAttribute('class', 'text-center'),
         ];
 

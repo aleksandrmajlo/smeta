@@ -16,18 +16,16 @@ use SleepingOwl\Admin\Form\Buttons\Save;
 use SleepingOwl\Admin\Form\Buttons\SaveAndClose;
 use SleepingOwl\Admin\Form\Buttons\SaveAndCreate;
 use SleepingOwl\Admin\Section;
-
-
-
+use AdminColumnEditable;
 
 /**
- * Class Tubes
+ * Class Requisites
  *
- * @property \App\Models\Tube $model
+ * @property \App\Models\Requisite $model
  *
  * @see https://sleepingowladmin.ru/#/ru/model_configuration_section
  */
-class Tubes extends Section implements Initializable
+class Requisites extends Section implements Initializable
 {
     /**
      * @var bool
@@ -37,7 +35,7 @@ class Tubes extends Section implements Initializable
     /**
      * @var string
      */
-    protected $title='Материалы,Трубы';
+    protected $title='Реквизиты';
 
     /**
      * @var string
@@ -49,7 +47,7 @@ class Tubes extends Section implements Initializable
      */
     public function initialize()
     {
-        $this->addToNavigation()->setPriority(100)->setIcon('fa fa-info');
+        $this->addToNavigation()->setPriority(800)->setIcon('fa fa-address-card');
     }
 
     /**
@@ -60,37 +58,33 @@ class Tubes extends Section implements Initializable
     public function onDisplay($payload = [])
     {
         $columns = [
-            AdminColumn::text('id', '#')->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
-            AdminColumn::link('title', 'Название')->setSearchCallback(function ($column, $query, $search) {
-                return $query ->orWhere('title', 'like', '%' . $search . '%');
-            })->setOrderable(function ($query, $direction) {
-                $query->orderBy('created_at', $direction);
-            })->setHtmlAttribute('class', 'text-center'),
-            AdminColumn::custom('Тип', function(\Illuminate\Database\Eloquent\Model $model) {
-                $types=config('tubes');
-                return $types[$model->type];
-            })->setHtmlAttribute('class', 'text-center'),
-
+            AdminColumnEditable::textarea('title')->setLabel('Название')->setHtmlAttribute('class', 'text-center'),
+            AdminColumn::text('type','Тип')->setHtmlAttribute('class', 'text-center'),
         ];
 
         $display = AdminDisplay::datatables()
             ->setName('firstdatatables')
-            ->setDisplaySearch(true)
+//            ->setOrder([[0, 'desc']])
+            ->setDisplaySearch(false)
             ->paginate(25)
             ->setColumns($columns)
             ->setHtmlAttribute('class', 'table-primary table-hover th-center');
         return $display;
     }
 
+    /**
+     * @param int|null $id
+     * @param array $payload
+     *
+     * @return FormInterface
+     */
     public function onEdit($id = null, $payload = [])
     {
-        $types=config('tubes');
-        $type_rigel=config('rigel');
+        $requisite=config('requisite');
         $form = AdminForm::card()->addBody([
             AdminFormElement::columns()->addColumn([
-                AdminFormElement::text('title', 'Заголовок')->required(),
-                AdminFormElement::select('type', 'Тип')->setOptions($types)->required(),
-                AdminFormElement::select('type_rigel', 'Тип для ригеля')->setOptions($type_rigel),
+                AdminFormElement::text('title', 'Название')->required(),
+                AdminFormElement::select('type', 'Тип')->setEnum($requisite)->required(),
             ])
         ]);
         $form->getButtons()->setButtons([

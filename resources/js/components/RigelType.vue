@@ -1,12 +1,13 @@
 <template>
     <div  class="ms-3">
-        <select class="form-control" name="tube_2">
+        <select class="form-control" name="tube_2" id="tube_2">
             <option v-for="item in items" :value="item.id">{{item.title}}</option>
         </select>
     </div>
 </template>
 
 <script>
+    import {eventBus} from "../app";
     export default {
         name: "RigelType",
         data() {
@@ -19,11 +20,10 @@
         created() {
             axios.get('/getTypeRigel')
                 .then(res => {
+                    let self = this;
                     this.type_rigel1 = res.data.type_rigel1;
                     this.type_rigel2 = res.data.type_rigel2;
                     this.setType(1);
-
-                    let self = this;
                     $(document).ready(function () {
                         $('#rigel_types').change(function (e) {
                             e.preventDefault();
@@ -44,6 +44,10 @@
                 } else {
                     this.items = this.type_rigel2;
                 }
+                setTimeout(()=>{
+                    eventBus.$emit("changeCalc");
+                },100)
+
             }
         }
     }

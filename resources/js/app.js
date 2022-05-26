@@ -1,8 +1,3 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
 require('./bootstrap');
 require('./my');
 
@@ -13,7 +8,7 @@ Vue.component('Roof', require('./components/Roof.vue').default);
 Vue.component('RigelType', require('./components/RigelType.vue').default);
 Vue.component('Photos', require('./components/Photos.vue').default);
 Vue.component('Result', require('./components/Result.vue').default);
-
+export const eventBus = new Vue();
 const app = new Vue({
     el: '#app',
 });

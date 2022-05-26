@@ -2,19 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
-
 Auth::routes(['register' => false]);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -31,3 +18,7 @@ Route::get('/getTypeRigel', [App\Http\Controllers\HomeController::class, 'getTyp
 // пдф
 Route::get('pdf_generate', [App\Http\Controllers\PdfController::class, 'create']);
 Route::post('pdf_generate', [App\Http\Controllers\PdfController::class, 'create']);
+/*
+ *  получить для pdf тарифы прочее
+ */
+Route::get('dataPDF',[App\Http\Controllers\HomeController::class,'dataPDF']);
